@@ -7,6 +7,7 @@ use crate::I2C_ADDRESS_AD0_LOW;
 
 use crate::Error;
 use device_driver::RegisterInterface;
+pub trait Interface: RegisterInterface<AddressType = u8> {}
 
 /// I2C interface for the ICM-20948
 pub struct I2cInterface<I2C> {
@@ -176,6 +177,8 @@ impl<SPI> SpiInterface<SPI> {
         self.spi
     }
 }
+
+impl<SPI, E> Interface for SpiInterface<SPI> where SPI: embedded_hal::spi::SpiDevice<Error = E> {}
 
 impl<SPI, E> RegisterInterface for SpiInterface<SPI>
 where

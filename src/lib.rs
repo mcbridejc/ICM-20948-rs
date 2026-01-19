@@ -17,7 +17,7 @@ pub mod dmp;
 
 // Re-export main types
 pub use device::{AccelData, GyroData, Icm20948Driver, MagData};
-pub use interface::{I2cInterface, SpiInterface};
+pub use interface::{I2cInterface, Interface, SpiInterface};
 pub use sensors::{
     AccelCalibration, AccelConfig, AccelDataG, AccelDlpf, AccelFullScale, GyroCalibration,
     GyroConfig, GyroDataDps, GyroDataRps, GyroDlpf, GyroFullScale, MagCalibration, MagConfig,

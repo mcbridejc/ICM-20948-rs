@@ -4400,6 +4400,13 @@ where
     }
 }
 
+pub trait Interface {}
+
+impl<I> Interface for Icm20948Driver<I> 
+where 
+    I: device_driver::AsyncRegisterInterface<AddressType = u8> 
+    {}
+
 #[cfg(feature = "async")]
 impl<I> Icm20948Driver<I>
 where
